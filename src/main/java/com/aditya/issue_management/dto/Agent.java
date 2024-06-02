@@ -1,12 +1,15 @@
 package com.aditya.issue_management.dto;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @Setter
+@Getter
 public class Agent {
     @Id
     @GeneratedValue
@@ -16,6 +19,7 @@ public class Agent {
     public Agent() {
     }
 
-    @OneToMany(mappedBy = "agent", cascade = CascadeType.ALL)
-    private List<AgentIssueTypes> issue_types;
+    public Agent(String name){
+        this.name = name;
+    }
 }
